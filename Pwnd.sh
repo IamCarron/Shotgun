@@ -1,4 +1,7 @@
 #!bin/bash
+echo
+echo "Pwnd.sh Script para vulnerar sistemas."
+echo
 echo "
 
 ⠉⠉⠉⣿⡿⠿⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣻⣩⣉⠉⠉
@@ -14,14 +17,15 @@ echo "
 ⠉⠉⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⣈⣉⣭⣽⡿⠟⢉⢴⣿⡇⣺⣿⣷
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠁⠐⢊⣡⣴⣾⣥⣿⣿⣿
 "
-echo
-echo "Pwned.sh Script para vulnerar sistemas."
-echo
 port_scanner(){
-    echo "Introduzca la subred que va a escanear:"
+    echo "Introduzca el equipo que va a escanear:" 
     read ip
-    echo "Buscando vulnerabilidades en la subred $IP..." 
-    nmap -sV -pn $ip
+    echo "Buscando puertos abiertos en la IP:$ip..." 
+    nmap -sV -Pn $ip > /tmp/resultados
+    echo
+    echo "Se han encontrado los puertos siguientes puertos abiertos:"
+    cat /tmp/resultados | grep open
+    rm /tmp/resultados
 }
 
 exploit_scanner(){
@@ -32,3 +36,12 @@ exploit_scanner(){
     msfconsole -q -x "db_nmap $ip2; vulns; exit"
 
 }
+
+exploit_finder(){
+
+}
+
+exploit_runner(){
+
+}
+
