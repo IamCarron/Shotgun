@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo ""
+echo "Pwnd.sh preparado para vulnerar sistema!"
 echo "
 ⠉⠉⠉⣿⡿⠿⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣻⣩⣉⠉⠉
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣀⣀⣀⣀⣀⡀⠄⠄⠉⠉⠄⠄⠄
@@ -50,7 +52,7 @@ exploit_finder() {
         if [ -n "$(echo "$CVE" | grep "CVE")" ]; then
             echo "Buscando un exploit para la vulnerabilidad $CVE..."
             sleep 5
-            echo
+            clear
             echo "Resultados encontrados para la vulnerabilidad $CVE!"
             msfconsole -q -x "search $CVE; exit" | grep exploit
             break
@@ -60,13 +62,24 @@ exploit_finder() {
     done
 }
 
+exploit_runner(){
+    echo "Escriba la vulnerabilidad que desea explotar usando Metasploit:"
+    read vuln
+    echo "Escriba la dirección IP que va a atacar:"
+    read ip2
+    clear
+    echo "¡Atacando con la vulnerabilidad $vuln al host $ip2!"
+    msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
+}
+
 # Menú principal
 while true; do
     echo "Seleccione una opción:"
     echo "1. Buscar equipos en una subred"
     echo "2. Escanear puertos abiertos en un equipo"
     echo "3. Buscar exploit para una vulnerabilidad (por CVE)"
-    echo "4. Salir"
+    echo "4. Explotar Host vulnerable"
+    echo "5. Salir"
 
     read option
 
@@ -74,7 +87,8 @@ while true; do
         1) host_finder ;;
         2) exploit_scanner ;;
         3) exploit_finder ;;
-        4) exit ;;
+        4) exploit_runner ;;
+        5) exit ;;
         *) echo "Opción no válida. Inténtelo de nuevo." ;;
     esac
 done
