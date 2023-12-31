@@ -1,8 +1,16 @@
 #!/bin/bash
+clear
+# Colores
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+RESET='\033[0m'
+CYAN='\033[96m'
+GREEN='\033[92m'
+YELLOW='\033[93m'
+RED='\033[91m'
 
-echo ""
-echo "Pwnd.sh preparado para vulnerar sistema!"
-echo "
+# ASCII Art
+echo "${CYAN}${BOLD}
 ⠉⠉⠉⣿⡿⠿⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣻⣩⣉⠉⠉
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣀⣀⣀⣀⣀⡀⠄⠄⠉⠉⠄⠄⠄
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣠⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⠄⠄⠄⠄
@@ -15,80 +23,106 @@ echo "
 ⣿⣿⣿⡼⣿⠷⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣠⣿⣟⢷⢾⣊⠄⠄
 ⠉⠉⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⣈⣉⣭⣽⡿⠟⢉⢴⣿⡇⣺⣿⣷
 ⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠁⠐⢊⣡⣴⣾⣥⣿⣿⣿
-"
+${RESET}"
 
 # Comprobar dependencias
-command -v nmap >/dev/null 2>&1 || { echo >&2 "Se requiere nmap pero no está instalado. Por favor, instálalo."; exit 1; }
-command -v msfconsole >/dev/null 2>&1 || { echo >&2 "Se requiere msfconsole pero no está instalado. Por favor, instálalo."; exit 1; }
-
+echo "${YELLOW}Comprobando dependencias...${RESET}"
+sleep 2
+echo "${GREEN}NMAP OK!${RESET}"
+command -v nmap >/dev/null 2>&1 || { echo>&2 "${RED}Se requiere nmap pero no está instalado. Por favor, instálalo.${RESET}"; exit 1; }
+sleep 2
+echo "${GREEN}Metasploit OK!${RESET}"
+command -v msfconsole >/dev/null 2>&1 || { echo>&2 "${RED}Se requiere msfconsole pero no está instalado. Por favor, instálalo.${RESET}"; exit 1; }
+echo "${CYAN}Pwnd.sh preparado para vulnerar sistemas!${RESET}"
+sleep 3
+# Función para encontrar hosts en una subred
 host_finder() {
-    echo "Introduzca la subred que va a escanear:"
+    clear
+    echo "${BOLD}${UNDERLINE}============================= Buscar Equipos en una Subred =============================${RESET}"
+    echo "${CYAN}Introduzca la subred que va a escanear:${RESET}"
     read subnet
-    echo "Buscando equipos en la subred:$subnet..."
+    echo "${CYAN}Buscando equipos en la subred: ${BOLD}$subnet${RESET}..."
     nmap -sn $subnet > /tmp/host_results
     echo
-    echo "Se han encontrado los siguientes equipos:"
+    echo "${CYAN}Se han encontrado los siguientes equipos:${RESET}"
     cat /tmp/host_results | grep open
     rm /tmp/host_results
+    echo "${BOLD}${UNDERLINE}=========================================================================================${RESET
+
+}"
 }
 
+# Función para escanear vulnerabilidades en un host
 exploit_scanner() {
-    echo "Introduzca la IP del equipo que va a escanear:"
+    clear
+    echo "${BOLD}${UNDERLINE}==================== Escanear Vulnerabilidades en un Host ====================${RESET}"
+    echo "${CYAN}Introduzca la IP del equipo que va a escanear:${RESET}"
     read ip
-    echo "Buscando puertos abiertos en la IP:$ip..."
+    echo "${CYAN}Buscando vulnerabilidades abiertas en la IP: ${BOLD}$ip${RESET}..."
     nmap -sV -Pn --script=vuln $ip > /tmp/vuln_results
     echo
-    echo "Se han encontrado los siguientes puertos abiertos:"
-    cat /tmp/vuln_results | grep open
+    echo "${CYAN}Se han encontrado las siguientes vulnerabilidades:${RESET}"
+    cat /tmp/vuln_results
     rm /tmp/vuln_results
+    echo "${BOLD}${UNDERLINE}==============================================================================${RESET}"
 }
 
+# Función para buscar exploits por CVE
 exploit_finder() {
+    clear
+    echo "${BOLD}${UNDERLINE}========= Buscar Exploit por Vulnerabilidad (CVE) =========${RESET}"
     while true; do
-        echo "Indique el CVE que quiere buscar:"
+        echo "${CYAN}Indique el CVE que quiere buscar:${RESET}"
         read CVE
 
         # Verificar si la entrada contiene la palabra CVE
-        if [ -n "$(echo "$CVE" | grep "CVE")" ]; then
-            echo "Buscando un exploit para la vulnerabilidad $CVE..."
-            sleep 5
+        if [ -n "$(echo"$CVE" | grep "CVE")" ]; then
+            echo "${CYAN}Buscando un exploit para la vulnerabilidad ${BOLD}$CVE${RESET}..."
+            sleep 3
             clear
-            echo "Resultados encontrados para la vulnerabilidad $CVE!"
+            echo "${CYAN}Resultados encontrados para la vulnerabilidad ${BOLD}$CVE${RESET}!"
             msfconsole -q -x "search $CVE; exit" | grep exploit
             break
         else
-            echo "Solo se admiten vulnerabilidades en formato CVE. Inténtalo de nuevo."
+            echo "${RED}Solo se admiten vulnerabilidades en formato CVE. Inténtalo de nuevo.${RESET}"
         fi
     done
+    echo "${BOLD}${UNDERLINE}===========================================================${RESET}"
 }
 
+# Función para ejecutar exploits en un host
 exploit_runner(){
-    echo "Escriba la vulnerabilidad que desea explotar usando Metasploit:"
+    clear
+    echo "${BOLD}${UNDERLINE}============================ Explotar Host Vulnerable ============================${RESET}"
+    echo "${CYAN}Escriba la vulnerabilidad que desea explotar usando Metasploit:${RESET}"
     read vuln
-    echo "Escriba la dirección IP que va a atacar:"
+    echo "${CYAN}Escriba la dirección IP que va a atacar:${RESET}"
     read ip2
     clear
-    echo "¡Atacando con la vulnerabilidad $vuln al host $ip2!"
-    msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
+    echo "${CYAN}¡Atacando con la vulnerabilidad ${BOLD}$vuln${CYAN} al host ${BOLD}$ip2${CYAN}!${RESET}"
+    sudo msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
+    echo "${BOLD}${UNDERLINE}=================================================================================${RESET}"
 }
 
 # Menú principal
+clear
 while true; do
-    echo "Seleccione una opción:"
-    echo "1. Buscar equipos en una subred"
-    echo "2. Escanear puertos abiertos en un equipo"
-    echo "3. Buscar exploit para una vulnerabilidad (por CVE)"
-    echo "4. Explotar Host vulnerable"
-    echo "5. Salir"
+    echo "${BOLD}${UNDERLINE}============================= Menú Principal =============================${RESET}"
+    echo "${CYAN}Seleccione una opción:${RESET}"
+    echo "${YELLOW}1. Buscar Equipos en una Subred${RESET}"
+    echo "${YELLOW}2. Escanear Vulnerabilidades en un Host${RESET}"
+    echo "${YELLOW}3. Buscar Exploit por Vulnerabilidad (CVE)${RESET}"
+    echo "${YELLOW}4. Explotar Host Vulnerable${RESET}"
+    echo "${YELLOW}5. Salir${RESET}"
 
-    read option
+    read opcion
 
-    case $option in
+    case $opcion in
         1) host_finder ;;
         2) exploit_scanner ;;
         3) exploit_finder ;;
         4) exploit_runner ;;
         5) exit ;;
-        *) echo "Opción no válida. Inténtelo de nuevo." ;;
+        *) echo "${RED}Opción no válida. Inténtelo de nuevo.${RESET}" ;;
     esac
 done
