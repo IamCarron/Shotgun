@@ -11,18 +11,21 @@ RED='\033[91m'
 
 # ASCII Art
 echo "${CYAN}${BOLD}
-⠉⠉⠉⣿⡿⠿⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⣻⣩⣉⠉⠉
-⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣀⣀⣀⣀⣀⡀⠄⠄⠉⠉⠄⠄⠄
-⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣠⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⠄⠄⠄⠄
-⠄⠄⠄⠄⠄⠄⠄⠄⠄⢤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠄⠄⠄
-⡄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠄⠉⠉⠉⣋⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⢷⡀⠄⠄
-⣿⡄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠠⣾⣿⣷⣄⣀⣀⣀⣠⣄⣢⣤⣤⣾⣿⡀⠄
-⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣹⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⢟⢁⣠
-⣿⣿⣄⣀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠉⣉⣉⣰⣿⣿⣿⣿⣷⣥⡀⠉⢁⡥⠈
-⣿⣿⣿⢹⣇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠒⠛⠛⠋⠉⠉⠛⢻⣿⣿⣷⢀⡭⣤⠄
-⣿⣿⣿⡼⣿⠷⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢀⣀⣠⣿⣟⢷⢾⣊⠄⠄
-⠉⠉⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⣈⣉⣭⣽⡿⠟⢉⢴⣿⡇⣺⣿⣷
-⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠁⠐⢊⣡⣴⣾⣥⣿⣿⣿
+⠄⠄⠄⠄⠄⠄⠄⢀⣠⣶⣾⣿⣶⣦⣤⣀⠄⢀⣀⣤⣤⣤⣤⣄⠄⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⢀⣴⣿⣿⣿⡿⠿⠿⠿⠿⢿⣷⡹⣿⣿⣿⣿⣿⣿⣷⠄⠄⠄⠄⠄
+⠄⠄⠄⠄⠄⣾⣿⣿⣿⣯⣵⣾⣿⣿⡶⠦⠭⢁⠩⢭⣭⣵⣶⣶⡬⣄⣀⡀⠄⠄
+⠄⠄⠄⡀⠘⠻⣿⣿⣿⣿⡿⠟⠩⠶⠚⠻⠟⠳⢶⣮⢫⣥⠶⠒⠒⠒⠒⠆⠐⠒
+⠄⢠⣾⢇⣿⣿⣶⣦⢠⠰⡕⢤⠆⠄⠰⢠⢠⠄⠰⢠⠠⠄⡀⠄⢊⢯⠄⡅⠂⠄
+⢠⣿⣿⣿⣿⣿⣿⣿⣏⠘⢼⠬⠆⠄⢘⠨⢐⠄⢘⠈⣼⡄⠄⠄⡢⡲⠄⠂⠠⠄
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣥⣀⡁⠄⠘⠘⠘⢀⣠⣾⣿⢿⣦⣁⠙⠃⠄⠃⠐⣀
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣋⣵⣾⣿⣿⣿⣿⣦⣀⣶⣾⣿⣿⡉⠉⠉
+⣿⣿⣿⣿⣿⣿⣿⠟⣫⣥⣬⣭⣛⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠄
+⣿⣿⣿⣿⣿⣿⣿⠸⣿⣏⣙⠿⣿⣿⣶⣦⣍⣙⠿⠿⠿⠿⠿⠿⠿⠿⣛⣩⣶⠄
+⣛⣛⣛⠿⠿⣿⣿⣿⣮⣙⠿⢿⣶⣶⣭⣭⣛⣛⣛⣛⠛⠛⠻⣛⣛⣛⣛⣋⠁⢀
+⣿⣿⣿⣿⣿⣶⣬⢙⡻⠿⠿⣷⣤⣝⣛⣛⣛⣛⣛⣛⣛⣛⠛⠛⣛⣛⠛⣡⣴⣿
+⣛⣛⠛⠛⠛⣛⡑⡿⢻⢻⠲⢆⢹⣿⣿⣿⣿⣿⣿⠿⠿⠟⡴⢻⢋⠻⣟⠈⠿⠿
+⣿⡿⡿⣿⢷⢤⠄⡔⡘⣃⢃⢰⡦⡤⡤⢤⢤⢤⠒⠞⠳⢸⠃⡆⢸⠄⠟⠸⠛⢿
+⡟⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⢸
 ${RESET}"
 
 # Comprobar dependencias
@@ -35,6 +38,16 @@ echo "${GREEN}Metasploit OK!${RESET}"
 command -v msfconsole >/dev/null 2>&1 || { echo>&2 "${RED}Se requiere msfconsole pero no está instalado. Por favor, instálalo.${RESET}"; exit 1; }
 echo "${CYAN}Pwnd.sh preparado para vulnerar sistemas!${RESET}"
 sleep 3
+
+# Función para ejecutar metasploit
+metasploit_runner(){
+        # Ejecutar comandos de Metasploit
+        for comando in "${comandos_metasploit[@]}"; do
+            echo "Ejecutando: $comando"
+            sudo msfconsole -q -x "$comando"
+        done
+}
+
 # Función para encontrar hosts en una subred
 host_finder() {
     clear
@@ -47,9 +60,7 @@ host_finder() {
     echo "${CYAN}Se han encontrado los siguientes equipos:${RESET}"
     cat /tmp/host_results | grep open
     rm /tmp/host_results
-    echo "${BOLD}${UNDERLINE}=========================================================================================${RESET
-
-}"
+    echo "${BOLD}${UNDERLINE}=========================================================================================${RESET}"
 }
 
 # Función para escanear vulnerabilidades en un host
@@ -76,7 +87,7 @@ exploit_finder() {
         read CVE
 
         # Verificar si la entrada contiene la palabra CVE
-        if [ -n "$(echo"$CVE" | grep "CVE")" ]; then
+        if [ -n "$(echo "$CVE" | grep "CVE")" ]; then
             echo "${CYAN}Buscando un exploit para la vulnerabilidad ${BOLD}$CVE${RESET}..."
             sleep 3
             clear
@@ -90,17 +101,33 @@ exploit_finder() {
     echo "${BOLD}${UNDERLINE}===========================================================${RESET}"
 }
 
-# Función para ejecutar exploits en un host
-exploit_runner(){
-    clear
-    echo "${BOLD}${UNDERLINE}============================ Explotar Host Vulnerable ============================${RESET}"
-    echo "${CYAN}Escriba la vulnerabilidad que desea explotar usando Metasploit:${RESET}"
-    read vuln
-    echo "${CYAN}Escriba la dirección IP que va a atacar:${RESET}"
-    read ip2
-    clear
-    echo "${CYAN}¡Atacando con la vulnerabilidad ${BOLD}$vuln${CYAN} al host ${BOLD}$ip2${CYAN}!${RESET}"
-    sudo msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
+exploit_runner() {
+    while true; do
+        clear
+        echo "${BOLD}${UNDERLINE}============================ Explotar Host Vulnerable ============================${RESET}"
+        echo "${CYAN}Escriba la vulnerabilidad que desea explotar usando Metasploit:${RESET}"
+        read -r vuln
+        echo "${CYAN}Escriba la dirección IP que va a atacar:${RESET}"
+        read -r ip2
+        clear
+        echo "${CYAN}¡Atacando con la vulnerabilidad ${BOLD}$vuln${CYAN} al host ${BOLD}$ip2${CYAN}!${RESET}"
+        
+        # Ejecutar Metasploit
+        msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
+        
+        # Verificar el resultado de Metasploit
+        if [ $? -eq 0 ]; then
+            echo "${GREEN}Exploit ejecutado con éxito.${RESET}"
+            break
+        else
+            echo "${RED}Hubo un error al ejecutar el exploit.${RESET}"
+            read -rp "¿Desea intentarlo de nuevo? (s/n): " intentar_nuevo
+            if [ "$intentar_nuevo" != "s" ]; then
+                break
+            fi
+        fi
+    done
+
     echo "${BOLD}${UNDERLINE}=================================================================================${RESET}"
 }
 
