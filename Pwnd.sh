@@ -115,17 +115,6 @@ exploit_runner() {
         # Ejecutar Metasploit
         msfconsole -q -x "use $vuln; set RHOSTS $ip2; run;"
         
-        # Verificar el resultado de Metasploit
-        if [ $? -eq 0 ]; then
-            echo "${GREEN}Exploit ejecutado con éxito.${RESET}"
-            break
-        else
-            echo "${RED}Hubo un error al ejecutar el exploit.${RESET}"
-            read -rp "¿Desea intentarlo de nuevo? (s/n): " intentar_nuevo
-            if [ "$intentar_nuevo" != "s" ]; then
-                break
-            fi
-        fi
     done
 
     echo "${BOLD}${UNDERLINE}=================================================================================${RESET}"
