@@ -1,7 +1,7 @@
-# AutoEthernal.sh 🌐💻
+# Shotgun.sh 🌐💻
 
 ## Descripción
-Pwnd.sh es un script de Bash interactivo diseñado para la búsqueda de equipos en una subred, el escaneo de vulnerabilidades en un host, la búsqueda de exploits por vulnerabilidad (CVE) y la explotación de hosts vulnerables utilizando Metasploit. El script utiliza herramientas como Nmap y Metasploit para realizar estas tareas.
+Shotgun.sh es un script de Bash interactivo diseñado para la búsqueda de equipos en una subred, el escaneo de vulnerabilidades en un host, la búsqueda de exploits por vulnerabilidad (CVE) y la explotación de hosts vulnerables utilizando Metasploit. El script utiliza herramientas como Nmap y Metasploit para realizar estas tareas.
 
 ## Requisitos
 Asegúrate de tener instaladas las siguientes dependencias antes de ejecutar el script:
@@ -11,13 +11,13 @@ Asegúrate de tener instaladas las siguientes dependencias antes de ejecutar el 
 ## Uso
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/AutoEthernal.sh.git
-   cd pwnd.sh
+   git clone https://github.com/tu_usuario/Shotgun.sh.git
+   cd Shotgun.sh
    ```
 
 2. Ejecuta el script:
    ```bash
-   ./AutoEthernal.sh
+   ./Shotgun.sh
    ```
 
 ## Características
