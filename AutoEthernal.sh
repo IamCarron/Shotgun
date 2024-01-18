@@ -36,7 +36,7 @@ command -v nmap >/dev/null 2>&1 || { echo >&2 "${RED}Se requiere nmap pero no es
 sleep 2
 echo "${GREEN}Metasploit OK!${RESET}"
 command -v msfconsole >/dev/null 2>&1 || { echo >&2 "${RED}Se requiere msfconsole pero no está instalado. Por favor, instálalo.${RESET}"; exit 1; }
-echo "${CYAN}Pwnd.sh preparado para vulnerar sistemas!${RESET}"
+echo "${CYAN}AutoEthernal.sh preparado para vulnerar sistemas!${RESET}"
 sleep 3
 
 # Función para encontrar hosts en una subred
